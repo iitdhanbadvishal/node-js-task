@@ -1,6 +1,4 @@
 const app = require("./app");
-const bodyParser = require("body-parser");
-const cors = require("cors");
 const mongoose = require("mongoose");
 
 const PORT = 3001;
