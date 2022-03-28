@@ -68,9 +68,9 @@ app.get("/movies", async (req, res) => {
     const { userId } = req.payload;
     const createdMovies = await Movie.find({ userId }).sort("createdAt");
 
-    res.json(createdMovies);
+    return res.status(200).json(createdMovies);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
   }
 });
 

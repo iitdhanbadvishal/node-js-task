@@ -36,10 +36,24 @@ it("Return 400 for case insentisative title", async () => {
     .post("/movies")
     .set("authorization", process.env.JWT_TOKEN)
     .send({ movieTitle: "no entry" });
+
   const response = await await request(app)
     .post("/movies")
     .set("authorization", process.env.JWT_TOKEN)
     .send({ movieTitle: "No entry" });
 
   expect(response.statusCode).toBe(400);
+});
+
+it("Return 200 for list of all movies for user", async () => {
+  await await request(app)
+    .post("/movies")
+    .set("authorization", process.env.JWT_TOKEN)
+    .send({ movieTitle: "no entry" });
+
+  const response = await await request(app)
+    .get("/movies")
+    .set("authorization", process.env.JWT_TOKEN);
+
+  expect(response.statusCode).toBe(200);
 });
