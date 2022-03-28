@@ -66,6 +66,7 @@ app.post("/movies", verifyAccessToken, roleIdentity, async (req, res) => {
 app.get("/movies", verifyAccessToken, async (req, res) => {
   try {
     const { userId } = req.payload;
+
     const createdMovies = await Movie.find({ userId }).sort("createdAt");
 
     return res.status(200).json(createdMovies);
