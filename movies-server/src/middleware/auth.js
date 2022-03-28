@@ -7,6 +7,9 @@ const { JWT_SECRET } = process.env;
 
 module.exports = {
   verifyAccessToken: (req, res, next) => {
+    console.log(process.env.JWT_SECRET);
+    console.log(process.env.API_KEY);
+    console.log(process.env.JWT_TOKEN);
     if (!req.headers["authorization"]) return next(createError.Unauthorized());
 
     const authHeader = req.headers["authorization"];
